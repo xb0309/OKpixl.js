@@ -65,13 +65,13 @@ static void player_scene_file_browser_reload_folders(app_player_t *app) {
         }
         p_vfs_driver->close_dir(&dir);
     } else {
-        mui_list_view_add_item(app->p_list_view, ICON_ERROR, "打开文件夹失败", (void *)-1);
+        mui_list_view_add_item(app->p_list_view, ICON_ERROR, "Failed to open folder", (void *)-1);
     }
 
     if (mui_list_view_item_size(app->p_list_view) == 0) {
-        mui_list_view_add_item(app->p_list_view, ICON_ERROR, "<无动画文件>", (void *)-1);
+        mui_list_view_add_item(app->p_list_view, ICON_ERROR, "<No animation file(BMP)>", (void *)-1);
     }
-    mui_list_view_add_item(app->p_list_view, ICON_BACK, ">>返回主菜单<<", (void *)-1);
+    mui_list_view_add_item(app->p_list_view, ICON_BACK, ">>Home<<", (void *)-1);
 
     mui_list_view_sort(app->p_list_view, player_scene_file_browser_list_item_cmp);
 }

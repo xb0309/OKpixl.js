@@ -29,11 +29,11 @@ static void amiibo_scene_amiibo_detail_reload_error(app_amiibo_t *app, const cha
     strcpy(msg, path);
     strcat(msg, "\n");
     if (err_code == NRF_ERR_NOT_AMIIBO) {
-        strcat(msg, "这不是Amiibo文件");
+        strcat(msg, "This is not an NTAG215 file");
     } else if (err_code == NRF_ERR_READ_ERROR) {
-        strcat(msg, "读取文件失败");
+        strcat(msg, "Failed to read the file");
     } else {
-        strcat(msg, "读取文件失败");
+        strcat(msg, "Failed to read the file");
     }
 
     mui_msg_box_set_header(app->p_msg_box, "错误");

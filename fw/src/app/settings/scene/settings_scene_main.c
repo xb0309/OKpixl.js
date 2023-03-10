@@ -23,7 +23,7 @@ static void settings_scene_main_list_view_on_selected(mui_list_view_event_t even
     switch (selection) {
     case SETTINGS_MAIN_MENU_BACK_LIGHT:
         mui_u8g2_set_backlight(!mui_u8g2_get_backlight());
-        sprintf(txt, "背光设置 [%s]", mui_u8g2_get_backlight() ? "开" : "关");
+        sprintf(txt, "Light [%s]", mui_u8g2_get_backlight() ? "on" : "off");
         settings_data_t* p_settings = settings_get_data();
         p_settings->backlight = mui_u8g2_get_backlight();
         string_set_str(p_item->text, txt);
@@ -52,16 +52,16 @@ void settings_scene_main_on_enter(void *user_data) {
 
     app_settings_t *app = user_data;
     char txt[32];
-    sprintf(txt, "版本 [%s]", version_get_version(version_get()));
+    sprintf(txt, "Version [%s]", version_get_version(version_get()));
     mui_list_view_add_item(app->p_list_view, 0xe1c7, txt, (void *)SETTINGS_MAIN_MENU_VERSION);
 
-    sprintf(txt, "背光设置 [%s]", mui_u8g2_get_backlight() ? "开" : "关");
+    sprintf(txt, "Light [%s]", mui_u8g2_get_backlight() ? "on" : "off");
     mui_list_view_add_item(app->p_list_view, 0xe1c8, txt, (void *)SETTINGS_MAIN_MENU_BACK_LIGHT);
 
-    sprintf(txt, "休眠时间 [%ds]", nrf_pwr_mgmt_get_timeout());
+    sprintf(txt, "SleepTime [%ds]", nrf_pwr_mgmt_get_timeout());
     mui_list_view_add_item(app->p_list_view, 0xe1c9, txt, (void *)SETTINGS_MAIN_MENU_SLEEP_TIMEOUT);
-    mui_list_view_add_item(app->p_list_view, 0xe1ca, "固件更新", (void *)SETTINGS_MAIN_MENU_DFU);
-    mui_list_view_add_item(app->p_list_view, 0xe069, "返回主菜单", (void *)SETTINGS_MAIN_MENU_EXIT);
+    mui_list_view_add_item(app->p_list_view, 0xe1ca, "Update", (void *)SETTINGS_MAIN_MENU_DFU);
+    mui_list_view_add_item(app->p_list_view, 0xe069, "Back", (void *)SETTINGS_MAIN_MENU_EXIT);
 
     mui_list_view_set_selected_cb(app->p_list_view, settings_scene_main_list_view_on_selected);
 
