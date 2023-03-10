@@ -36,9 +36,9 @@ static void amiibo_scene_amiibo_detail_reload_error(app_amiibo_t *app, const cha
         strcat(msg, "Failed to read the file");
     }
 
-    mui_msg_box_set_header(app->p_msg_box, "错误");
+    mui_msg_box_set_header(app->p_msg_box, "Error");
     mui_msg_box_set_message(app->p_msg_box, msg);
-    mui_msg_box_set_btn_text(app->p_msg_box, NULL, "返回", NULL);
+    mui_msg_box_set_btn_text(app->p_msg_box, NULL, "Back", NULL);
     mui_msg_box_set_btn_focus(app->p_msg_box, 1);
     mui_msg_box_set_event_cb(app->p_msg_box, amiibo_scene_amiibo_detail_msg_box_error_cb);
 
